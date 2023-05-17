@@ -68,7 +68,7 @@ class PostController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $sport = Sport::pluck('title','id');
-        $list = Post::orderBy('id','ASC')->get();
+        $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
         $post = Post::find($id);
         return view('admin.post.form',compact('list','category','genre','sport','post'));
     }
