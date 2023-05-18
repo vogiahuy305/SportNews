@@ -1,3 +1,22 @@
+@extends('index')
+@section('content')
+<div class="post-details-title-area bg-overlay clearfix" style="background-image: url({{ asset('/user/assets/img/bg-img/22.jpg') }})">
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 col-lg-8">
+                <!-- Post Content -->
+                <div class="post-content">
+                    <p class="tag"><span>Local News</span></p>
+                    <p class="post-title">Live out your Mario Kart dreams on the streets of Tokyo</p>
+                    <div class="d-flex align-items-center">
+                        <span class="post-date mr-30">June 20, 2018</span>
+                        <span class="post-date">By Michael Smith</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="post-news-area section-padding-100-0 mb-70">
     <div class="container">
         <div class="row justify-content-center">
@@ -243,5 +262,6 @@
         </div>
     </div>
 </section>
+@endsection
 
 

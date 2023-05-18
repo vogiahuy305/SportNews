@@ -15,7 +15,7 @@ class IndexController extends Controller
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
         $genre = Genre::orderBy('id','ASC')->get();
         $sport = Sport::orderBy('id','ASC')->get();
-        $category_home = Category::orderBy('id','ASC')->where('status',1)->get();
+        $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
         return view('page.home',compact('category','genre','sport','category_home'));
     }
     public function category($slug){
@@ -36,7 +36,15 @@ class IndexController extends Controller
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
         $genre = Genre::orderBy('id','ASC')->get();
         $sport = Sport::orderBy('id','ASC')->get();
-        $sport_slug = Category::where('slug',$slug)->first();
+        $sport_slug = Sport::where('slug',$slug)->first();
         return view('page.sport',compact('category','genre','sport','sport_slug'));
+    }
+    public function post($slug){
+        // $category = Category::orderBy('id','ASC')->where('status',1)->get();
+        // $genre = Genre::orderBy('id','ASC')->get();
+        // $sport = Sport::orderBy('id','ASC')->get();
+        // $post_slug = Post::where('slug',$slug)->first();
+        return view('page.post');
+        // ,compact('category','genre','sport','post_slug'
     }
 }

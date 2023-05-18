@@ -28,7 +28,7 @@ class PostController extends Controller
         $genre = Genre::pluck('title','id');
         $sport = Sport::pluck('title','id');
         $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
-        return view('admin.post.form',compact('list','category','genre','sport'));
+        return view('admin.post.form',compact('category','genre','sport','list'));
     }
 
     /**
@@ -37,6 +37,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
         $post = new Post();
         $post->title = $data['title'];
         $post->slug = $data['slug'];
@@ -48,6 +49,7 @@ class PostController extends Controller
         $post->category_id = $data['category_id'];
         $post->genre_id = $data['genre_id'];
         $post->sport_id = $data['sport_id'];
+
         $post->save();
         return redirect()->back();
     }
@@ -70,7 +72,7 @@ class PostController extends Controller
         $sport = Sport::pluck('title','id');
         $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
         $post = Post::find($id);
-        return view('admin.post.form',compact('list','category','genre','sport','post'));
+        return view('admin.post.form',compact('category','genre','sport','list','post'));
     }
 
     /**
