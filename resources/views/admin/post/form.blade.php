@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+                <a href="{{ route('post.index') }}" class="btn btn-primary">Liệt kê tin tức</a>
                 <div class="card-header">{{ __('Quản lý tin tức') }}</div>
 
                 <div class="card-body">
@@ -74,44 +75,6 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Slug</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Sport</th>
-                    <th scope="col">Manage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach($list as $key => $post)
-                  <tr>
-                    <th scope="row">{{ $post->id }}</th>
-                    <td>{{ $post->title }}</td>
-                    <td><img src="{{ $post->image }}" width="80%"></td>
-                    <td>{{ $post->date }}</td>
-                    <td>{{ $post->description }}</td>
-                    <td>{{ $post->slug }}</td>
-                    <td>{{ $post->category->title }}</td>
-                    <td>{{ $post->genre->title }}</td>
-                    <td>{{ $post->sport->title }}</td>
-                    <td>
-
-                        {!! Form::open(['method'=>'DELETE','route'=>['post.destroy',$post->id],'onsubmit'=>'return confirm("Xác nhận xóa ?")']) !!}
-                            {!! Form::submit('Xóa', ['class'=>'btn btn-danger']) !!}
-                        {!! Form::close() !!}
-                        <a href="{{ route('post.edit',$post->id) }}" class="btn btn-warning">Sửa</a>
-                    </td>
-                  </tr>
-                @endforeach
-                </tbody>
-              </table>
         </div>
     </div>
 </div>

@@ -38,6 +38,8 @@ Route::get('/home', [HomeController::class,'index'])->name('home');
 
 //Route admin
 Route::resource('category', CategoryController::class);
+Route::post('resorting',[CategoryController::class,'resorting'])->name('resorting');
+
 Route::resource('genre', GenreController::class);
 Route::resource('sport', SportController::class);
 Route::resource('post', PostController::class);

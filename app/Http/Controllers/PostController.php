@@ -16,7 +16,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
+        return view('admin.post.index',compact('list'));
     }
 
     /**
@@ -27,8 +28,7 @@ class PostController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $sport = Sport::pluck('title','id');
-        $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
-        return view('admin.post.form',compact('category','genre','sport','list'));
+        return view('admin.post.form',compact('category','genre','sport'));
     }
 
     /**
@@ -70,9 +70,8 @@ class PostController extends Controller
         $category = Category::pluck('title','id');
         $genre = Genre::pluck('title','id');
         $sport = Sport::pluck('title','id');
-        $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
         $post = Post::find($id);
-        return view('admin.post.form',compact('category','genre','sport','list','post'));
+        return view('admin.post.form',compact('category','genre','sport','post'));
     }
 
     /**

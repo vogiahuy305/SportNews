@@ -13,6 +13,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -85,10 +87,15 @@
         </main>
         @yield('content')
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
+        let table = new DataTable('#tablepost');
+
         function ChangeToSlug()
         {
 
@@ -121,6 +128,29 @@
                 //In slug ra textbox có id “slug”
             document.getElementById('convert_slug').value = slug;
         }
+    </script>
+    <script type="text/javascript">
+        $('.order_position').sortable({
+            placeholder: 'ui-state-highlight',
+            update: function(event,ui){
+                var array_id = [];
+                $('.order_position tr').each(function(){
+                    array_id.push($(this).attr('id'));
+                })
+                // alert(array_id);
+                $.ajax({
+                    headers: (
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    ),
+                    url: "{{ route('resorting') }}",
+                    method: "POST",
+                    data: {array_id: array_id},
+                    success: function(data){
+                        alert('Sắp xếp thứ tự thành công');
+                    }
+                })
+            }
+        })
     </script>
 </body>
 </html>
