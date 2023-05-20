@@ -101,13 +101,15 @@
                   <!-- Breaking News Widget -->
                   <div class="breaking-news-ticker d-flex flex-wrap align-items-center">
                      <div class="title">
-                        <h6>Tin nổi bật</h6>
+                        <h6>Tin hot</h6>
                      </div>
                      <div id="breakingNewsTicker" class="ticker">
                         <ul>
-                           <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum.</a></li>
-                           <li><a href="#">Welcome to Colorlib Family.</a></li>
-                           <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque</a></li>
+                            @foreach($hot_news as $key => $hot)
+                            <li>
+                                <a href="#">{{ $hot->title }}</a>
+                            </li>
+                            @endforeach
                         </ul>
                      </div>
                   </div>

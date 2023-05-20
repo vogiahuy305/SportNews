@@ -11,6 +11,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Image</th>
+                    <th scope="col">Hot</th>
                     <th scope="col">Date</th>
                     {{--  <th scope="col">Description</th>  --}}
                     <th scope="col">Slug</th>
@@ -26,6 +27,13 @@
                     <th scope="row">{{ $post->id }}</th>
                     <td>{{ $post->title }}</td>
                     <td><img src="{{ $post->image }}" width="80%"></td>
+                    <td>
+                        @if($post->hot_news == 1)
+                            Có
+                        @else
+                            Không
+                        @endif
+                    </td>
                     <td>{{ $post->date }}</td>
                     {{--  <td>{{ $post->description }}</td>  --}}
                     <td>{{ $post->slug }}</td>

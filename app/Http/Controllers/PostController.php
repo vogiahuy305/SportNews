@@ -40,6 +40,7 @@ class PostController extends Controller
 
         $post = new Post();
         $post->title = $data['title'];
+        $post->hot_news = $data['hot_news'];
         $post->slug = $data['slug'];
         $post->date = $data['date'];
         $post->description = $data['description'];
@@ -83,6 +84,7 @@ class PostController extends Controller
 
         $post = Post::find($id);
         $post->title = $data['title'];
+        $post->hot_news = $data['hot_news'];
         $post->slug = $data['slug'];
         $post->date = $data['date'];
         $post->description = $data['description'];
