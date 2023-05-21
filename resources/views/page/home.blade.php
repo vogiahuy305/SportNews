@@ -281,89 +281,22 @@
                     <!-- Video Slides -->
                     <div class="video-slides owl-carousel">
                         <!-- Single News Area -->
-                        <div class="single-blog-post style-3">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/11.jpg') }}" alt=""></a>
-                                <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                            </div>
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <p class="post-title">Elon Musk: Tesla worker admitted to sabotage</p>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-3">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/12.jpg') }}" alt=""></a>
-                                <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                            </div>
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <p class="post-title">Rachel Sm ith breaks down while discussing border crisis </p>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-3">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/13.jpg') }}" alt=""></a>
-                                <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                            </div>
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <p class="post-title">Dow falls 287 points as trade war fears escalate</p>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-3">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/11.jpg') }}" alt=""></a>
-                                <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                            </div>
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <p class="post-title">Elon Musk: Tesla worker admitted to sabotage</p>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-3">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/12.jpg') }}" alt=""></a>
-                                <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                            </div>
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <p class="post-title">Rachel Sm ith breaks down while discussing border crisis </p>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-3">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/13.jpg') }}" alt=""></a>
-                                <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                            </div>
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <p class="post-title">Dow falls 287 points as trade war fears escalate</p>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
+                        @foreach($category_home as $key => $cate_home)
+                            @foreach($cate_home->post->take(6) as $key => $post)
+                                <!-- Single News Area -->
+                                <div class="single-blog-post style-3">
+                                    <!-- Blog Thumbnail -->
+                                    <div class="blog-thumbnail">
+                                        <a href=""><img src="{{ $post->image }}" alt=""></a>
+                                    </div>
+                                    <!-- Blog Content -->
+                                    <div class="blog-content">
+                                        <span class="post-date">{{ $post->date }}</span>
+                                        <p class="post-title">{{ $post->title }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>

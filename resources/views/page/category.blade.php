@@ -32,29 +32,13 @@
                         <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav1">
                             <div class="row">
                                 @foreach($post as $key => $post)
+
                                 <!-- Single News Area -->
-                                <div class="col-12 col-lg-12">
+                                <div class="col-12 col-sm-3">
                                     <div class="single-blog-post style-2 mb-5">
                                         <!-- Blog Thumbnail -->
                                         <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ $post->img }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">{{ $post->date }}</span>
-                                            <a href="#" class="post-title">{{ $post->title }}</a>
-                                            <p>{{ $post->description }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-4">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ $post->img }}" alt=""></a>
+                                            <a href="#"><img src="{{ $post->image }}" alt=""></a>
                                         </div>
 
                                         <!-- Blog Content -->
