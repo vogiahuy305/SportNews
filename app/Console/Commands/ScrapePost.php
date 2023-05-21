@@ -45,7 +45,9 @@ class ScrapePost extends Command
 
         $description = $this->crawlData('div.react-page-cell div.react-page-cell-inner div div p strong', $crawler);
 
-        $content = $this->crawlData('div.react-page-cell-inner.react-page-cell-inner-leaf.slate div div p', $crawler);
+        $content = $crawler->filter('div.react-page-cell-inner.react-page-cell-inner-leaf.slate div div p')->each(function($node){
+            $node->attr("p");
+        });
 
         $dataPost = [
             'title' => $title,

@@ -15,7 +15,7 @@
             <!-- Intro News Tabs Area -->
             <div class="col-12 col-lg-12">
                 <div class="intro-news-tab">
-                    <!-- Intro News Filter -->
+                    {{--  <!-- Intro News Filter -->
                     <div class="intro-news-filter d-flex justify-content-between">
                         <h6>All the news</h6>
                         <nav>
@@ -26,25 +26,25 @@
                                 <a class="nav-item nav-link" id="nav4" data-toggle="tab" href="#nav-4" role="tab" aria-controls="nav-4" aria-selected="false">Local</a>
                             </div>
                         </nav>
-                    </div>
+                    </div>  --}}
 
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav1">
                             <div class="row">
+                                @foreach($post as $key => $post)
                                 <!-- Single News Area -->
                                 <div class="col-12 col-lg-12">
                                     <div class="single-blog-post style-2 mb-5">
                                         <!-- Blog Thumbnail -->
                                         <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/24.jpg') }}" alt=""></a>
+                                            <a href="#"><img src="{{ $post->img }}" alt=""></a>
                                         </div>
 
                                         <!-- Blog Content -->
                                         <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author mb-30">By Michael Smith</a>
-                                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac. Mauris nec mauris tellus. </p>
+                                            <span class="post-date">{{ $post->date }}</span>
+                                            <a href="#" class="post-title">{{ $post->title }}</a>
+                                            <p>{{ $post->description }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -54,338 +54,18 @@
                                     <div class="single-blog-post style-2 mb-5">
                                         <!-- Blog Thumbnail -->
                                         <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/14.jpg') }}" alt=""></a>
+                                            <a href="#"><img src="{{ $post->img }}" alt=""></a>
                                         </div>
 
                                         <!-- Blog Content -->
                                         <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
+                                            <span class="post-date">{{ $post->date }}</span>
+                                            <a href="#" class="post-title">{{ $post->title }}</a>
+                                            <p>{{ $post->description }}</p>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-4">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/15.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-4">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/4.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-4">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/5.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav2">
-                            <div class="row">
-                                <!-- Single News Area -->
-                                <div class="col-12">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/25.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author mb-30">By Michael Smith</a>
-                                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac. Mauris nec mauris tellus. </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/14.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/15.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/4.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/5.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav3">
-                            <div class="row">
-                                <!-- Single News Area -->
-                                <div class="col-12">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/26.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author mb-30">By Michael Smith</a>
-                                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac. Mauris nec mauris tellus. </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/14.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/15.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/4.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/5.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav4">
-                            <div class="row">
-                                <!-- Single News Area -->
-                                <div class="col-12">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/27.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author mb-30">By Michael Smith</a>
-                                            <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac. Mauris nec mauris tellus. </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/14.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/15.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/4.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single News Area -->
-                                <div class="col-12 col-sm-6">
-                                    <div class="single-blog-post style-2 mb-5">
-                                        <!-- Blog Thumbnail -->
-                                        <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/5.jpg') }}" alt=""></a>
-                                        </div>
-
-                                        <!-- Blog Content -->
-                                        <div class="blog-content">
-                                            <span class="post-date">June 20, 2018</span>
-                                            <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                            <a href="#" class="post-author">By Michael Smith</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -451,50 +131,13 @@
 
                 <div class="col-12 col-md-4 col-lg-3">
 
-                    <!-- Single News Area -->
+                    <!-- Banner Area -->
                     <div class="single-blog-post style-6 mb-30">
-                        <!-- Blog Thumbnail -->
+                        <!-- Banner -->
                         <div class="blog-thumbnail">
-                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/11.jpg') }}" alt=""></a>
-                            <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <span class="post-date">June 20, 2018</span>
-                            <p class="post-title">Viral Video</p>
+                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/banner.jpg') }}" alt=""></a>
                         </div>
                     </div>
-
-                    <!-- Single News Area -->
-                    <div class="single-blog-post style-6 mb-30">
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/12.jpg') }}" alt=""></a>
-                            <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <span class="post-date">June 20, 2018</span>
-                            <p class="post-title">Viral Video</p>
-                        </div>
-                    </div>
-
-                    <!-- Single News Area -->
-                    <div class="single-blog-post style-6 mb-30">
-                        <!-- Blog Thumbnail -->
-                        <div class="blog-thumbnail">
-                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/13.jpg') }}" alt=""></a>
-                            <a href="#" class="video-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                        <!-- Blog Content -->
-                        <div class="blog-content">
-                            <span class="post-date">June 20, 2018</span>
-                            <p class="post-title">Viral Video</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
