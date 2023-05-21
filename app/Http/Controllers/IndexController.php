@@ -24,7 +24,7 @@ class IndexController extends Controller
         $genre = Genre::orderBy('id','ASC')->get();
         $sport = Sport::orderBy('id','ASC')->get();
         $cate_slug = Category::where('slug',$slug)->first();
-        $post = Post::where('category_id',$cate_slug->id)->paginate(30);
+        $post = Post::where('category_id',$cate_slug->id)->paginate(12);
         $hot_news = Post::where('hot_news',1)->get();
         return view('page.category',compact('category','genre','sport','cate_slug','post','hot_news'));
     }
@@ -33,7 +33,7 @@ class IndexController extends Controller
         $genre = Genre::orderBy('id','ASC')->get();
         $sport = Sport::orderBy('id','ASC')->get();
         $genre_slug = Genre::where('slug',$slug)->first();
-        $post = Post::where('genre_id',$genre_slug->id)->paginate(30);
+        $post = Post::where('genre_id',$genre_slug->id)->paginate(12);
         $hot_news = Post::where('hot_news',1)->get();
         return view('page.genre',compact('category','genre','sport','genre_slug','post','hot_news'));
     }
@@ -42,7 +42,7 @@ class IndexController extends Controller
         $genre = Genre::orderBy('id','ASC')->get();
         $sport = Sport::orderBy('id','ASC')->get();
         $sport_slug = Sport::where('slug',$slug)->first();
-        $post = Post::where('sport_id',$sport_slug->id)->paginate(30);
+        $post = Post::where('sport_id',$sport_slug->id)->paginate(12);
         $hot_news = Post::where('hot_news',1)->get();
         return view('page.sport',compact('category','genre','sport','sport_slug','post','hot_news'));
     }
