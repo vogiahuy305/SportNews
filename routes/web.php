@@ -30,7 +30,8 @@ Route::get('/', [IndexController::class, 'home'])->name('homepage');
 Route::get('/danh-muc/{slug}', [IndexController::class,'category'])->name('category');
 Route::get('/quoc-gia/{slug}', [IndexController::class,'genre'])->name('genre');
 Route::get('/the-thao/{slug}', [IndexController::class,'sport'])->name('sport');
-Route::get('/post', [IndexController::class,'post'])->name('post');
+Route::get('/bai-viet/{slug}', [IndexController::class,'post'])->name('post');
+Route::get('/post', [IndexController::class, 'post'])->name('post');
 
 Auth::routes();
 

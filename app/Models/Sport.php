@@ -10,4 +10,7 @@ class Sport extends Model
     public $timestamps = false;
     use HasFactory;
 
+    public function post(){
+        return $this->hasMany(Post::class)->orderBy('date','DESC');
+    }
 }

@@ -47,11 +47,13 @@ class IndexController extends Controller
         return view('page.sport',compact('category','genre','sport','sport_slug','post','hot_news'));
     }
     public function post($slug){
-        // $category = Category::orderBy('id','ASC')->where('status',1)->get();
-        // $genre = Genre::orderBy('id','ASC')->get();
-        // $sport = Sport::orderBy('id','ASC')->get();
-        // $post_slug = Post::where('slug',$slug)->first();
-        return view('page.post');
+        $category = Category::orderBy('id','ASC')->where('status',1)->get();
+        $genre = Genre::orderBy('id','ASC')->get();
+        $sport = Sport::orderBy('id','ASC')->get();
+        $post = Post::with('category','genre','sport')->where('slug',$slug)->first();
+        $hot_news = Post::where('hot_news',1)->get();
+        $post_slug = Post::where('slug',$slug)->first();
+        return view('page.post',compact('category','genre','sport','hot_news','post_slug','post'));
         // ,compact('category','genre','sport','post_slug'
     }
 }

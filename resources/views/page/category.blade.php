@@ -24,13 +24,13 @@
                                     <div class="single-blog-post style-2 mb-5">
                                         <!-- Blog Thumbnail -->
                                         <div class="blog-thumbnail">
-                                            <a href="#"><img src="{{ $post->image }}" alt=""></a>
+                                            <a href="{{ route('post',$post->slug) }}"><img src="{{ $post->image }}" alt=""></a>
                                         </div>
 
                                         <!-- Blog Content -->
                                         <div class="blog-content">
                                             <span class="post-date">{{ $post->date }}</span>
-                                            <a href="#" class="post-title">{{ $post->title }}</a>
+                                            <a href="{{ route('post',$post->slug) }}" class="post-title">{{ $post->title }}</a>
                                             <p>{{ $post->description }}</p>
                                         </div>
                                     </div>
@@ -73,13 +73,13 @@
                     <div class="single-blog-post d-flex flex-wrap style-5 mb-30">
                         <!-- Blog Thumbnail -->
                         <div class="blog-thumbnail">
-                            <a href="#"><img src="{{ $hot->image }}" alt=""></a>
+                            <a href="{{ route('post',$post->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
                         </div>
 
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <span class="post-date">{{ $hot->date }}</span>
-                            <a href="#" class="post-title">{{ $hot->title }}</a>
+                            <a href="{{ route('post',$post->slug) }}" class="post-title">{{ $hot->title }}</a>
                             <p>{{ $hot->description }}</p>
                         </div>
                     </div>
