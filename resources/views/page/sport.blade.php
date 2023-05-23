@@ -53,13 +53,13 @@
                     <div class="single-blog-post d-flex flex-wrap style-5 mb-30">
                         <!-- Blog Thumbnail -->
                         <div class="blog-thumbnail">
-                            <a href="{{ route('post',$post->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
+                            <a href="{{ route('post',$hot->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
                         </div>
 
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <span class="post-date">{{ $hot->date }}</span>
-                            <a href="{{ route('post',$post->slug) }}" class="post-title">{{ $hot->title }}</a>
+                            <a href="{{ route('post',$hot->slug) }}" class="post-title">{{ $hot->title }}</a>
                             <p>{{ $hot->description }}</p>
                         </div>
                     </div>
@@ -71,10 +71,10 @@
                     <div class="single-blog-post style-6 mb-30">
                         <!-- Banner -->
                         <div class="blog-thumbnail">
-                            <a href="{{ route('post',$post->slug) }}"><img src="{{ asset('/user/assets/img/bg-img/banner/banner.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/banner/banner.jpg') }}" alt=""></a>
                         </div>
                         <div class="blog-thumbnail">
-                            <a href="{{ route('post',$post->slug) }}"><img src="{{ asset('/user/assets/img/bg-img/banner/banner.jpg') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/banner/banner.jpg') }}" alt=""></a>
                         </div>
                     </div>
                 </div>

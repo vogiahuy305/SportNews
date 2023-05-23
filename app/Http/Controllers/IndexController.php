@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Genre;
 use App\Models\Sport;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -53,6 +54,7 @@ class IndexController extends Controller
         $post = Post::with('category','genre','sport')->where('slug',$slug)->first();
         $hot_news = Post::where('hot_news',1)->get();
         $post_slug = Post::where('slug',$slug)->first();
+        $related = Post::with('category','genre','sport')->where('category_id',$post->category->id)->orderBy(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
         return view('page.post',compact('category','genre','sport','hot_news','post_slug','post'));
         // ,compact('category','genre','sport','post_slug'
     }

@@ -13,7 +13,7 @@
         <br>
         <div class="row justify-content-center">
             <!-- Intro News Tabs Area -->
-            <div class="col-12 col-lg-12">
+            <div class="col-12 col-lg-8">
                 <div class="intro-news-tab">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav1">
@@ -41,7 +41,33 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sidebar Widget -->
+            <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+                <div class="sidebar-area">
+                    <!-- Latest News Widget -->
+                    <div class="single-widget-area news-widget mb-30">
+                        <h4>Latest News</h4>
+                        @foreach($hot_news->take(8) as $key => $post)
+                        <!-- Single News Area -->
+                        <div class="single-blog-post d-flex style-4 mb-30">
+                            <!-- Blog Thumbnail -->
+                            <div class="blog-thumbnail">
+                                <a href="#"><img src="{{ $post->image }}" alt=""></a>
+                            </div>
+
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <span class="post-date">{{ $post->date }}</span>
+                                <a href="#" class="post-title">{{ $post->title }}</a>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="news-area section-padding-100-70">
@@ -53,13 +79,13 @@
                     <div class="single-blog-post d-flex flex-wrap style-5 mb-30">
                         <!-- Blog Thumbnail -->
                         <div class="blog-thumbnail">
-                            <a href="{{ route('post',$post->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
+                            <a href="{{ route('post',$hot->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
                         </div>
 
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <span class="post-date">{{ $hot->date }}</span>
-                            <a href="{{ route('post',$post->slug) }}" class="post-title">{{ $hot->title }}</a>
+                            <a href="{{ route('post',$hot->slug) }}" class="post-title">{{ $hot->title }}</a>
                             <p>{{ $hot->description }}</p>
                         </div>
                     </div>
