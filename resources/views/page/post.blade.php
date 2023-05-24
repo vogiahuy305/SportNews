@@ -80,6 +80,44 @@
             </div>
         </div>
     </div>
+
+    <div class="news-area section-padding-100-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-9">
+                    <!-- Single News Area -->
+                    @foreach($related->take(4) as $key => $related)
+                    <div class="single-blog-post d-flex flex-wrap style-5 mb-30">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <a href="{{ route('post',$related->slug) }}"><img src="{{ $related->image }}" alt=""></a>
+                        </div>
+
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <span class="post-date">{{ $related->date }}</span>
+                            <a href="{{ route('post',$related->slug) }}" class="post-title">{{ $related->title }}</a>
+                            <p>{{ $related->description }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <div class="col-12 col-md-4 col-lg-3">
+                    <!-- Banner Area -->
+                    <div class="single-blog-post style-6 mb-30">
+                        <!-- Banner -->
+                        <div class="blog-thumbnail">
+                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/banner/banner.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="blog-thumbnail">
+                            <a href="#"><img src="{{ asset('/user/assets/img/bg-img/banner/banner.jpg') }}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 @endsection
 
