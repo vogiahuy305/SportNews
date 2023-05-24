@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Genre;
 use App\Models\Sport;
+use Illuminate\Support\Facades\File;
 use Symfony\Component\Routing\RequestContext;
 
 class PostController extends Controller
@@ -17,6 +18,12 @@ class PostController extends Controller
     public function index()
     {
         $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
+
+        $path = public_path()."/json/";
+        if(!is_dir($path)) {
+            mkdir($path,0777,true);
+        }
+        File::put($path.'post.json',json_encode($list));
         return view('admin.post.index',compact('list'));
     }
 
@@ -43,7 +50,6 @@ class PostController extends Controller
         $post->hot_news = $data['hot_news'];
         $post->slug = $data['slug'];
         $post->date = $data['date'];
-        $post->tags = $data['tags'];
         $post->description = $data['description'];
         $post->content = $data['content'];
         $post->link_post = $data['link_post'];
@@ -88,7 +94,6 @@ class PostController extends Controller
         $post->hot_news = $data['hot_news'];
         $post->slug = $data['slug'];
         $post->date = $data['date'];
-        $post->tags = $data['tags'];
         $post->description = $data['description'];
         $post->content = $data['content'];
         $post->link_post = $data['link_post'];

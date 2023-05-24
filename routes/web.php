@@ -36,6 +36,9 @@ Route::get('/post', [IndexController::class, 'post'])->name('post');
 Auth::routes();
 
 Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/dashboard',function(){
+    return view('admin.layouts.app');
+});
 
 //Route admin
 Route::resource('category', CategoryController::class);

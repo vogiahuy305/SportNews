@@ -30,9 +30,10 @@
                      <!-- Nav brand -->
                      <a href="{{ route('homepage') }}" class="nav-brand"><img src="{{ asset('/user/assets/img/core-img/logo.png') }}" alt=""></a>
                      <!-- Navbar Toggler -->
-                     <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                     </div>
+                    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+                        <input type="text" name="search" id="timkiem" placeholder="Search.." name="search2">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                      <!-- Menu -->
                      <div class="classy-menu">
                         <!-- Close Button -->
@@ -81,6 +82,7 @@
                         </div>
                         <!-- Nav End -->
                      </div>
+
                   </nav>
                </div>
             </div>
@@ -101,7 +103,7 @@
                         <ul>
                             @foreach($hot_news as $key => $hot)
                             <li>
-                                <a href="#">{{ $hot->title }}</a>
+                                <a href="{{ route('post',$hot->slug) }}">{{ $hot->title }}</a>
                             </li>
                             @endforeach
                         </ul>

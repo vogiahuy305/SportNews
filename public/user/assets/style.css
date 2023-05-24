@@ -15,7 +15,9 @@
 
 body {
   font-family: "Raleway", sans-serif;
-  font-size: 14px; }
+  font-size: 14px;
+  background-color:#8a8a8a;
+}
 
 h1,
 h2,
@@ -651,7 +653,7 @@ img {
   .single-blog-post.style-2 .blog-content {
     position: relative;
     text-align: justify;
-    height: 200px;
+    height:200px;
     z-index: 1; }
     .single-blog-post.style-2 .blog-content .post-date {
       font-size: 12px;
@@ -1390,14 +1392,48 @@ img {
 }
 a.category{
     font-size: 22px;
-    margin: 10px;
+    margin: 10px 0px;
+    text-transform: uppercase;
     text-decoration: none;
-    color: #232323;
+    color: #ef1b48;
 }
 a.category:hover{
     text-decoration: underline;
     color:#232323;
+    font-size: 26px;
 }
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-radius: 10px 0 0 10px;
+    float: left;
+    width: 80%;
+    background: #ffffff;
+  }
+
+  form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #ef1b48;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-radius: 0 10px 10px 0;
+    border-left: none;
+    cursor: pointer;
+  }
+
+  form.example button:hover {
+    background: #a90b33;
+  }
+
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */

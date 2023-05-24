@@ -21,47 +21,17 @@
                     <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav1">
                         <div class="row">
                             <!-- Single News Area -->
+                            @foreach ($hot_news->take(2) as $key => $hot)
                             <div class="col-12 col-sm-6">
                                 <div class="single-blog-post style-2 mb-5">
                                 <!-- Blog Thumbnail -->
                                 <div class="blog-thumbnail">
-                                    <a href=""><img src="{{ asset('/user/assets/img/bg-img/14.jpg') }}" alt=""></a>
+                                    <a href="{{ route('post',$hot->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
                                 </div>
                                 <!-- Blog Content -->
                                 <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                    <a href="" class="post-author">By Michael Smith</a>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Single News Area -->
-                            <div class="col-12 col-sm-6">
-                                <div class="single-blog-post style-2 mb-5">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="{{ asset('/user/assets/img/bg-img/15.jpg') }}" alt=""></a>
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                    <a href="#" class="post-author">By Michael Smith</a>
-                                </div>
-                                </div>
-                            </div>
-                            @foreach ($category as $key => $cate)
-                            <!-- Single News Area -->
-                            <div class="col-12 col-sm-6">
-                                <div class="single-blog-post d-flex style-4 mb-30">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="{{ asset('/user/assets/img/bg-img/16.jpg') }}" alt=""></a>
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Nearly a quarter have no emergency savings</a>
+                                    <span class="post-date">{{ $hot->date }}</span>
+                                    <a href="{{ route('post',$hot->slug) }}" class="post-title">{{ $hot->title }}</a>
                                 </div>
                                 </div>
                             </div>

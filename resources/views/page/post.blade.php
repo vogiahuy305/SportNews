@@ -14,8 +14,13 @@
                     <img src="{{ $post->image }}">
                     <br><br>
                     <p>{{ $post->content }}</p>
-                    <br><br>
-                    <p></p>
+                    <br>
+                    <span>
+                        <i>
+                            Đọc bài viết gốc tại
+                            <a href="{{ $post->link_post }}"><b><u>đây</u></b></a>
+                        </i>
+                   </span>
                 </div>
             </div>
 
@@ -46,10 +51,6 @@
         </div>
     </div>
 
-    <div class="tags-name">
-        <div>Từ khoá:</div>
-        <div></div>
-    </div>
     <div class="news-area section-padding-100-70">
         <div class="container">
             <div class="row">
