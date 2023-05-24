@@ -46,6 +46,10 @@
                             'id'=>'content']) !!}
                         </div>
                         <div class="form-group">
+                            {!! Form::label('tags', 'Tags', []) !!}
+                            {!! Form::textarea('tags', isset($post) ? $post->tags : '', ['style'=>'resize:none; height:100px','class'=>'form-control','placeholder'=>'Nhập dữ liệu ...']) !!}
+                        </div>
+                        <div class="form-group">
                             {!! Form::label('link post', 'Link Post', []) !!}
                             {!! Form::text('link_post', isset($post) ? $post->link_post : '', ['class'=>'form-control','placeholder'=>'Nhập dữ liệu ...',
                             'id'=>'link_post']) !!}

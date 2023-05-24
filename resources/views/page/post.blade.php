@@ -20,7 +20,7 @@
             </div>
 
             <!-- Sidebar Widget -->
-            <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+            <div class="col-12 col-lg-4">
                 <div class="sidebar-area">
                     <!-- Latest News Widget -->
                     <div class="single-widget-area news-widget mb-30">
@@ -30,57 +30,26 @@
                         <div class="single-blog-post d-flex style-4 mb-30">
                             <!-- Blog Thumbnail -->
                             <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ $post->image }}" alt=""></a>
+                                <a href="{{ route('post',$post->slug) }}"><img src="{{ $post->image }}" alt=""></a>
                             </div>
 
                             <!-- Blog Content -->
                             <div class="blog-content">
                                 <span class="post-date">{{ $post->date }}</span>
-                                <a href="#" class="post-title">{{ $post->title }}</a>
+                                <a href="{{ route('post',$post->slug) }}" class="post-title">{{ $post->title }}</a>
                             </div>
                         </div>
                         @endforeach
                     </div>
-
-                    {{--  <!-- Single Widget Area -->
-                    <div class="single-widget-area">
-
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-2 mb-5">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/14.jpg') }}" alt=""></a>
-                            </div>
-
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-
-                        <!-- Single News Area -->
-                        <div class="single-blog-post style-2 mb-5">
-                            <!-- Blog Thumbnail -->
-                            <div class="blog-thumbnail">
-                                <a href="#"><img src="{{ asset('/user/assets/img/bg-img/15.jpg') }}" alt=""></a>
-                            </div>
-
-                            <!-- Blog Content -->
-                            <div class="blog-content">
-                                <span class="post-date">June 20, 2018</span>
-                                <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                <a href="#" class="post-author">By Michael Smith</a>
-                            </div>
-                        </div>
-                    </div>  --}}
-
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="tags-name">
+        <div>Từ khoá:</div>
+        <div></div>
+    </div>
     <div class="news-area section-padding-100-70">
         <div class="container">
             <div class="row">

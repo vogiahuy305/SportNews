@@ -13,6 +13,7 @@
                     <th scope="col">Image</th>
                     <th scope="col">Hot</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Tags</th>
                     {{--  <th scope="col">Description</th>  --}}
                     <th scope="col">Slug</th>
                     <th scope="col">Category</th>
@@ -35,6 +36,7 @@
                         @endif
                     </td>
                     <td>{{ $post->date }}</td>
+                    <td>{{ $post->tags }}</td>
                     {{--  <td>{{ $post->description }}</td>  --}}
                     <td>{{ $post->slug }}</td>
                     <td>{{ $post->category->title }}</td>

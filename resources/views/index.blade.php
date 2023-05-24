@@ -72,7 +72,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('home') }}">
                                         <span>Đăng nhập</span>
                                         <img src="{{ asset('/user/assets/img/bg-img/avatar.jpg') }}" width="50px" height="50px"  alt="">
                                         </a>

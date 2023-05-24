@@ -43,6 +43,7 @@ class PostController extends Controller
         $post->hot_news = $data['hot_news'];
         $post->slug = $data['slug'];
         $post->date = $data['date'];
+        $post->tags = $data['tags'];
         $post->description = $data['description'];
         $post->content = $data['content'];
         $post->link_post = $data['link_post'];
@@ -87,6 +88,7 @@ class PostController extends Controller
         $post->hot_news = $data['hot_news'];
         $post->slug = $data['slug'];
         $post->date = $data['date'];
+        $post->tags = $data['tags'];
         $post->description = $data['description'];
         $post->content = $data['content'];
         $post->link_post = $data['link_post'];
