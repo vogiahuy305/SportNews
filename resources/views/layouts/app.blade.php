@@ -131,28 +131,6 @@
             document.getElementById('convert_slug').value = slug;
         }
     </script>
-    <script type="text/javascript">
-        $('.order_position').sortable({
-            placeholder: 'ui-state-highlight',
-            update: function(event,ui){
-                var array_id = [];
-                $('.order_position tr').each(function(){
-                    array_id.push($(this).attr('id'));
-                })
-                // alert(array_id);
-                $.ajax({
-                    headers: (
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    ),
-                    url: "{{ route('resorting') }}",
-                    method: "POST",
-                    data: {array_id: array_id},
-                    success: function(data){
-                        alert('Sắp xếp thứ tự thành công');
-                    }
-                })
-            }
-        })
-    </script>
+
 </body>
 </html>
