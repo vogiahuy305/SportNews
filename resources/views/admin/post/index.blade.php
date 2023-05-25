@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <a href="{{ route('post.create') }}" class="btn btn-primary">Thêm tin tức</a><br><br>
             <table class="table" id="tablepost">
                 <thead>
                   <tr>
