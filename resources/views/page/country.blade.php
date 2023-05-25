@@ -13,7 +13,7 @@
         <br>
         <div class="row justify-content-center">
             <!-- Intro News Tabs Area -->
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-12">
                 <div class="intro-news-tab">
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav1">
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <!-- Sidebar Widget -->
+            {{--  <!-- Sidebar Widget -->
             <div class="col-12 col-sm-9 col-md-6 col-lg-4">
                 <div class="sidebar-area">
                     <!-- Latest News Widget -->
@@ -65,7 +65,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </div>  --}}
         </div>
     </div>
 
