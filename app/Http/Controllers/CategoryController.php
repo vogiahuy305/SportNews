@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $list = Category::orderBy('position','ASC')->get();
+        return view('admin.category.index',compact('list'));
     }
 
     /**
@@ -20,8 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $list = Category::orderBy('position','ASC')->get();
-        return view('admin.category.form',compact('list'));
+        return view('admin.category.form');
     }
 
     /**

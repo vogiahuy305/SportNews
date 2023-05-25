@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <a href="{{ route('post.create') }}" class="btn btn-primary">Thêm tin tức</a>
             <table class="table" id="tablepost">
                 <thead>
                   <tr>
@@ -16,7 +15,7 @@
                     {{--  <th scope="col">Description</th>  --}}
                     <th scope="col">Slug</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Genre</th>
+                    <th scope="col">Country</th>
                     <th scope="col">Sport</th>
                     <th scope="col">Manage</th>
                   </tr>
@@ -38,7 +37,7 @@
                     {{--  <td>{{ $post->description }}</td>  --}}
                     <td>{{ $post->slug }}</td>
                     <td>{{ $post->category->title }}</td>
-                    <td>{{ $post->genre->title }}</td>
+                    <td>{{ $post->country->title }}</td>
                     <td>{{ $post->sport->title }}</td>
                     <td>
 

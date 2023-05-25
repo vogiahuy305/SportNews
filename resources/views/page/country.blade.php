@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Trang chủ</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ $genre_slug->title }}</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ $country_slug->title }}</li>
                 </ol>
               </nav>
         </div>

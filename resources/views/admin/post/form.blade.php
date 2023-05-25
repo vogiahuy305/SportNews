@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <a href="{{ route('post.index') }}" class="btn btn-primary">Liệt kê tin tức</a>
+                <a href="{{ route('post.index') }}" class="btn btn-primary">Danh sách tin tức</a>
                 <div class="card-header">{{ __('Quản lý tin tức') }}</div>
 
                 <div class="card-body">
@@ -60,8 +60,8 @@
                             {!! Form::select('category_id', $category, isset($post) ? $post->status : '' , ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('genre', 'Genre', []) !!}
-                            {!! Form::select('genre_id', $genre, isset($post) ? $post->status : '' , ['class'=>'form-control']) !!}
+                            {!! Form::label('country', 'Country', []) !!}
+                            {!! Form::select('country_id', $country, isset($post) ? $post->status : '' , ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('sport', 'Sport', []) !!}

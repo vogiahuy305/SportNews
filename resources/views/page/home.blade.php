@@ -32,57 +32,7 @@
                                 <div class="blog-content">
                                     <span class="post-date">{{ $hot->date }}</span>
                                     <a href="{{ route('post',$hot->slug) }}" class="post-title">{{ $hot->title }}</a>
-                                </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav2">
-                        <div class="row">
-                            <!-- Single News Area -->
-                            <div class="col-12 col-sm-6">
-                                <div class="single-blog-post style-2 mb-5">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="{{ asset('/user/assets/img/bg-img/4.jpg') }}" alt=""></a>
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Elon Musk: Tesla worker admitted to sabotage</a>
-                                    <a href="#" class="post-author">By Michael Smith</a>
-                                </div>
-                                </div>
-                            </div>
-                            <!-- Single News Area -->
-                            <div class="col-12 col-sm-6">
-                                <div class="single-blog-post style-2 mb-5">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="{{ asset('/user/assets/img/bg-img/5.jpg') }}" alt=""></a>
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Rachel Sm ith breaks down while discussing border crisis</a>
-                                    <a href="#" class="post-author">By Michael Smith</a>
-                                </div>
-                                </div>
-                            </div>
-                            @foreach ($category as $key => $cate)
-                            <!-- Single News Area -->
-                            <div class="col-12 col-sm-6">
-                                <div class="single-blog-post d-flex style-4 mb-30">
-                                <!-- Blog Thumbnail -->
-                                <div class="blog-thumbnail">
-                                    <a href="#"><img src="{{ asset('/user/assets/img/bg-img/16.jpg') }}" alt=""></a>
-                                </div>
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <span class="post-date">June 20, 2018</span>
-                                    <a href="#" class="post-title">Nearly a quarter have no emergency savings</a>
+                                    <p>{{ $hot->description }}</p>
                                 </div>
                                 </div>
                             </div>
@@ -112,6 +62,7 @@
                         <div class="blog-content">
                             <span class="post-date">{{ $post->date }}</span>
                             <a href="{{ route('post',$post->slug) }}" class="post-title">{{ $post->title }}</a>
+                            <p>{{ $post->description }}</p>
                         </div>
                     </div>
                     </div>
@@ -127,22 +78,22 @@
                     <!-- Video Slides -->
                     <div class="video-slides owl-carousel">
                         <!-- Single News Area -->
-                        @foreach($category_home as $key => $cate_home)
-                            @foreach($cate_home->post->take(6) as $key => $post)
+
+                            @foreach($hot_news->take(6) as $key => $hot)
                                 <!-- Single News Area -->
                                 <div class="single-blog-post style-3">
                                     <!-- Blog Thumbnail -->
                                     <div class="blog-thumbnail">
-                                        <a href="{{ route('post',$post->slug) }}"><img src="{{ $post->image }}" alt=""></a>
+                                        <a href="{{ route('post',$hot->slug) }}"><img src="{{ $hot->image }}" alt=""></a>
                                     </div>
                                     <!-- Blog Content -->
                                     <div class="blog-content">
-                                        <span class="post-date">{{ $post->date }}</span>
-                                        <p class="post-title">{{ $post->title }}</p>
+                                        <span class="post-date">{{ $hot->date }}</span>
+                                        <p class="post-title">{{ $hot->title }}</p>
                                     </div>
                                 </div>
                             @endforeach
-                        @endforeach
+
                     </div>
                 </div>
             </div>

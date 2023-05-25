@@ -30,7 +30,7 @@
                      <!-- Nav brand -->
                      <a href="{{ route('homepage') }}" class="nav-brand"><img src="{{ asset('/user/assets/img/core-img/logo.png') }}" alt=""></a>
                      <!-- Navbar Toggler -->
-                    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+                    <form class="example" action="#" style="margin:auto;max-width:300px">
                         <input type="text" name="search" id="timkiem" placeholder="Search.." name="search2">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
@@ -57,8 +57,8 @@
                                 <li>
                                     <a href="#">Quốc gia</a>
                                     <ul class="dropdown">
-                                    @foreach($genre as $key => $gen)
-                                        <li><a title="{{ $gen->title }}" href="{{ route('genre', $gen->slug) }}">{{ $gen->title }}</a></li>
+                                    @foreach($country as $key => $count)
+                                        <li><a title="{{ $count->title }}" href="{{ route('country', $count->slug) }}">{{ $count->title }}</a></li>
                                     @endforeach
                                     </ul>
                                 </li>
@@ -71,12 +71,6 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </li>
-                                <li>
-                                    <a href="{{ route('home') }}">
-                                        <span>Đăng nhập</span>
-                                        <img src="{{ asset('/user/assets/img/bg-img/avatar.jpg') }}" width="50px" height="50px"  alt="">
-                                        </a>
                                 </li>
                             </ul>
                         </div>

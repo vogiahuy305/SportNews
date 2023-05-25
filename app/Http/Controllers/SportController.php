@@ -12,7 +12,8 @@ class SportController extends Controller
      */
     public function index()
     {
-        //
+        $list = Sport::all();
+        return view('admin.sport.index',compact('list'));
     }
 
     /**
@@ -20,8 +21,7 @@ class SportController extends Controller
      */
     public function create()
     {
-        $list = Sport::all();
-        return view('admin.sport.form',compact('list'));
+        return view('admin.sport.form');
     }
 
     /**

@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+                <a href="{{ route('post.index') }}" class="btn btn-primary">Danh sách thể thao</a>
                 <div class="card-header">{{ __('Quản lý thể thao') }}</div>
 
                 <div class="card-body">
@@ -45,42 +46,6 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Slug</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Manage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                @foreach($list as $key => $spt)
-                  <tr>
-                    <th scope="row">{{ $spt->id }}</th>
-                    <td>{{ $spt->title }}</td>
-                    <td>{{ $spt->description }}</td>
-                    <td>{{ $spt->slug }}</td>
-                    <td>
-                        @if($spt->status)
-                            Hiển thị
-                        @else
-                            Không hiển thị
-                        @endif
-                    </td>
-                    <td>
-
-                        {!! Form::open(['method'=>'DELETE','route'=>['sport.destroy',$spt->id],'onsubmit'=>'return confirm("Xác nhận xóa ?")']) !!}
-                            {!! Form::submit('Xóa', ['class'=>'btn btn-danger']) !!}
-                        {!! Form::close() !!}
-                        <a href="{{ route('sport.edit',$spt->id) }}" class="btn btn-warning">Sửa</a>
-                    </td>
-                  </tr>
-                @endforeach
-                </tbody>
-              </table>
         </div>
     </div>
 </div>

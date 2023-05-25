@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
-use App\Models\Genre;
+use App\Models\Country;
 use App\Models\Sport;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Routing\RequestContext;
@@ -17,13 +17,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $list = Post::with('category','genre','sport')->orderBy('id','ASC')->get();
+        $list = Post::with('category','country','sport')->orderBy('id','ASC')->get();
 
-        $path = public_path()."/json/";
-        if(!is_dir($path)) {
-            mkdir($path,0777,true);
-        }
-        File::put($path.'post.json',json_encode($list));
+        // $path = public_path()."/json/";
+        // if(!is_dir($path)) {
+        //     mkdir($path,0777,true);
+        // }
+        // File::put($path.'post.json',json_encode($list));
         return view('admin.post.index',compact('list'));
     }
 
@@ -33,9 +33,9 @@ class PostController extends Controller
     public function create()
     {
         $category = Category::pluck('title','id');
-        $genre = Genre::pluck('title','id');
+        $country = Country::pluck('title','id');
         $sport = Sport::pluck('title','id');
-        return view('admin.post.form',compact('category','genre','sport'));
+        return view('admin.post.form',compact('category','country','sport'));
     }
 
     /**
@@ -55,7 +55,7 @@ class PostController extends Controller
         $post->link_post = $data['link_post'];
         $post->image = $data['image'];
         $post->category_id = $data['category_id'];
-        $post->genre_id = $data['genre_id'];
+        $post->country_id = $data['country_id'];
         $post->sport_id = $data['sport_id'];
 
         $post->save();
@@ -76,10 +76,10 @@ class PostController extends Controller
     public function edit(string $id)
     {
         $category = Category::pluck('title','id');
-        $genre = Genre::pluck('title','id');
+        $country = Country::pluck('title','id');
         $sport = Sport::pluck('title','id');
         $post = Post::find($id);
-        return view('admin.post.form',compact('category','genre','sport','post'));
+        return view('admin.post.form',compact('category','country','sport','post'));
     }
 
     /**
@@ -99,7 +99,7 @@ class PostController extends Controller
         $post->link_post = $data['link_post'];
         $post->image = $data['image'];
         $post->category_id = $data['category_id'];
-        $post->genre_id = $data['genre_id'];
+        $post->country_id = $data['country_id'];
         $post->sport_id = $data['sport_id'];
         $post->save();
         return redirect()->back();
