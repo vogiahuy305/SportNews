@@ -19,11 +19,12 @@ class PostController extends Controller
     {
         $list = Post::with('category','country','sport')->orderBy('id','ASC')->get();
 
-        // $path = public_path()."/json/";
-        // if(!is_dir($path)) {
-        //     mkdir($path,0777,true);
-        // }
-        // File::put($path.'post.json',json_encode($list));
+        $path = public_path()."/json/";
+        if(!is_dir($path)) {
+            mkdir($path,0777,true);
+        }
+        File::put($path.'post.json',json_encode($list));
+
         return view('admin.post.index',compact('list'));
     }
 
@@ -57,7 +58,7 @@ class PostController extends Controller
         $post->category_id = $data['category_id'];
         $post->country_id = $data['country_id'];
         $post->sport_id = $data['sport_id'];
-
+        $post->status = $data['status'];
         $post->save();
         return redirect()->back();
     }
@@ -101,6 +102,7 @@ class PostController extends Controller
         $post->category_id = $data['category_id'];
         $post->country_id = $data['country_id'];
         $post->sport_id = $data['sport_id'];
+        $post->status = $data['status'];
         $post->save();
         return redirect()->back();
     }

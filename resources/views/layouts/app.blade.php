@@ -100,9 +100,7 @@
         let table3 = new DataTable('#tablesport')
         function ChangeToSlug()
         {
-
             var slug;
-
             //Lấy text từ thẻ input title
             slug = document.getElementById("slug").value;
             slug = slug.toLowerCase();

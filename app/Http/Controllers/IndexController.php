@@ -14,16 +14,16 @@ class IndexController extends Controller
 {
     public function home(){
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
-        $country = Country::orderBy('id','ASC')->get();
-        $sport = Sport::orderBy('id','ASC')->get();
+        $country = Country::orderBy('id','ASC')->where('status',1)->get();
+        $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
         $hot_news = Post::where('hot_news',1)->orderBy(DB::raw('RAND()'))->get();
         return view('page.home',compact('category','country','sport','category_home','hot_news'));
     }
     public function category($slug){
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
-        $country = Country::orderBy('id','ASC')->get();
-        $sport = Sport::orderBy('id','ASC')->get();
+        $country = Country::orderBy('id','ASC')->where('status',1)->get();
+        $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $cate_slug = Category::where('slug',$slug)->first();
         $post = Post::where('category_id',$cate_slug->id)->paginate(9);
         $hot_news = Post::where('hot_news',1)->get();
@@ -31,8 +31,8 @@ class IndexController extends Controller
     }
     public function country($slug){
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
-        $country = Country::orderBy('id','ASC')->get();
-        $sport = Sport::orderBy('id','ASC')->get();
+        $country = Country::orderBy('id','ASC')->where('status',1)->get();
+        $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $country_slug = Country::where('slug',$slug)->first();
         $post = Post::where('country_id',$country_slug->id)->paginate(9);
         $hot_news = Post::where('hot_news',1)->get();
@@ -49,10 +49,10 @@ class IndexController extends Controller
     }
     public function post($slug){
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
-        $country = Country::orderBy('id','ASC')->get();
-        $sport = Sport::orderBy('id','ASC')->get();
+        $country = Country::orderBy('id','ASC')->where('status',1)->get();
+        $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $post = Post::with('category','country','sport')->where('slug',$slug)->first();
-        $hot_news = Post::where('hot_news',1)->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         $post_slug = Post::where('slug',$slug)->first();
         $related = Post::with('category','country','sport')->where('sport_id',$post->sport->id)->orderBy(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
         return view('page.post',compact('category','country','sport','hot_news','post_slug','post','related'));

@@ -18,6 +18,7 @@
                     <th scope="col">Category</th>
                     <th scope="col">Country</th>
                     <th scope="col">Sport</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Manage</th>
                   </tr>
                 </thead>
@@ -40,6 +41,13 @@
                     <td>{{ $post->category->title }}</td>
                     <td>{{ $post->country->title }}</td>
                     <td>{{ $post->sport->title }}</td>
+                    <td>
+                        @if($post->status)
+                            Hiển thị
+                        @else
+                            Không hiển thị
+                        @endif
+                    </td>
                     <td>
 
                         {!! Form::open(['method'=>'DELETE','route'=>['post.destroy',$post->id],'onsubmit'=>'return confirm("Xác nhận xóa ?")']) !!}

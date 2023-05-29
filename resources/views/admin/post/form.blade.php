@@ -71,6 +71,10 @@
                             {!! Form::label('hot', 'Hot News', []) !!}
                             {!! Form::select('hot_news',['1'=>'Có','0'=>'Không'], isset($post) ? $post->hot_news : '' , ['class'=>'form-control']) !!}
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('status', 'Status', []) !!}
+                            {!! Form::select('status',['1'=>'Hiển thị','0'=>'Không'], isset($post) ? $post->status : '' , ['class'=>'form-control']) !!}
+                        </div>
                         @if(!isset($post))
                             {!! Form::submit('Thêm dữ liệu', ['class'=>'btn btn-success']) !!}
                         @else

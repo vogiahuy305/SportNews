@@ -29,11 +29,16 @@
                   <nav class="classy-navbar justify-content-between" id="newsboxNav">
                      <!-- Nav brand -->
                      <a href="{{ route('homepage') }}" class="nav-brand"><img src="{{ asset('/user/assets/img/core-img/logo.png') }}" alt=""></a>
-                     <!-- Navbar Toggler -->
+
+                    <!-- Search bar -->
                     <form class="example" action="#" style="margin:auto;max-width:300px">
                         <input type="text" name="search" id="timkiem" placeholder="Search.." name="search2">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
+                    <ul class="list-group" id="result" style="display:none;">
+
+                    </ul>
+
                      <!-- Menu -->
                      <div class="classy-menu">
                         <!-- Close Button -->
@@ -95,7 +100,7 @@
                      </div>
                      <div id="breakingNewsTicker" class="ticker">
                         <ul>
-                            @foreach($hot_news as $key => $hot)
+                            @foreach($hot_news->take(10) as $key => $hot)
                             <li>
                                 <a href="{{ route('post',$hot->slug) }}">{{ $hot->title }}</a>
                             </li>
@@ -160,5 +165,25 @@
       <script src="{{ asset('/user/assets/js/plugins/plugins.js') }}"></script>
       <!-- Active js -->
       <script src="{{ asset('/user/assets/js/active.js') }}"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $('#timkiem').keyup(function() {
+                $('#result').html('');
+                var search = $('#timkiem').val();
+                if(search!=''){
+                    var expression = new RegExp(search, "i");
+                    $.getJSON('/json_file/post.json', function(data) {
+                        $.each(data, function(key, value){
+                            if(value.title.search(expression) != -1)
+                            {
+                                $('#result').css('display','inherit');
+                                $('#result').append('<li style="cursor:pointer" class="list-group-item link-class"><img src="{{ $post->image }}"></li>')
+                            }
+                        })
+                    })
+                }
+            })
+        })
+      </script>
    </body>
 </html>
