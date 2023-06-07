@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
-    public function home(){
+    public function home(Request $request){
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
         $country = Country::orderBy('id','ASC')->where('status',1)->get();
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
         $hot_news = Post::where('hot_news',1)->orderBy(DB::raw('RAND()'))->get();
-        return view('page.home',compact('category','country','sport','category_home','hot_news'));
+        $keywords = $request->keywords_submit;
+        return view('page.home',compact('category','country','sport','category_home','hot_news','keywords'));
     }
     public function category($slug){
         $category = Category::orderBy('id','ASC')->where('status',1)->get();
@@ -57,5 +58,17 @@ class IndexController extends Controller
         $related = Post::with('category','country','sport')->where('sport_id',$post->sport->id)->orderBy(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
         return view('page.post',compact('category','country','sport','hot_news','post_slug','post','related'));
         // ,compact('category','country','sport','post_slug'
+    }
+    public function search(Request $request)
+    {
+        $category = Category::orderBy('id','ASC')->where('status',1)->get();
+        $country = Country::orderBy('id','ASC')->where('status',1)->get();
+        $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
+        $post = Post::orderBy('id','ASC')->where('status',1)->get();
+        $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
+        $hot_news = Post::where('hot_news',1)->orderBy(DB::raw('RAND()'))->get();
+        $keywords = $request->keywords_submit;
+        $search_post = Post::where('title','like','%'.$keywords.'%')->get();
+        return view('page.search',compact('category','country','sport','post','category_home','hot_news','search_post','keywords'));
     }
 }

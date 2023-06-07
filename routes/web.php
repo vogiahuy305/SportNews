@@ -34,6 +34,7 @@ Route::get('/quoc-gia/{slug}', [IndexController::class,'country'])->name('countr
 Route::get('/the-thao/{slug}', [IndexController::class,'sport'])->name('sport');
 Route::get('/bai-viet/{slug}', [IndexController::class,'post'])->name('post');
 Route::get('/post', [IndexController::class, 'post'])->name('post');
+Route::get('/timkiem',[IndexController::class, 'search'])->name('search');
 
 Auth::routes();
 

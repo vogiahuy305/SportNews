@@ -12,8 +12,8 @@
       <link rel="icon" href="{{ asset('user/assets/img/core-img/favicon.ico') }}">
       <!-- Stylesheet -->
       <link rel="stylesheet" href="{{ asset('/user/assets/style.css') }}">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       {{--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  --}}
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -31,11 +31,11 @@
                      <a href="{{ route('homepage') }}" class="nav-brand"><img src="{{ asset('/user/assets/img/core-img/logo.png') }}" alt=""></a>
 
                     <!-- Search bar -->
-                    <form class="example" action="#" style="margin:auto;max-width:300px">
-                        <input type="text" name="search" id="timkiem" placeholder="Search.." name="search2">
+                    <form class="example" action="{{ route('search') }}" style="margin:auto;max-width:300px">
+                        <input type="text" name="keywords_submit" id="search" placeholder="Tìm..." value="{{ $keywords }}">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <ul class="list-group" id="result" style="display:none;">
+                    <ul class="list-group" id="result" style="display:none">
 
                     </ul>
 
@@ -167,23 +167,23 @@
       <script src="{{ asset('/user/assets/js/active.js') }}"></script>
       <script type="text/javascript">
         $(document).ready(function() {
-            $('#timkiem').keyup(function() {
+            $('#search').keyup(function() {
                 $('#result').html('');
-                var search = $('#timkiem').val();
+                var search = $('#search').val();
                 if(search!=''){
                     var expression = new RegExp(search, "i");
-                    $.getJSON('/json_file/post.json', function(data) {
-                        $.each(data, function(key, value){
-                            if(value.title.search(expression) != -1)
-                            {
-                                $('#result').css('display','inherit');
-                                $('#result').append('<li style="cursor:pointer" class="list-group-item link-class"><img src="{{ $post->image }}"></li>')
-                            }
-                        })
+                    $.getJSON('/json/post.json',function(data){
+                     $.each(data, function(key,value){
+                        if(value.title.search(expression) != 1){
+                            $('#result').append('<li class="list-group-item link-class" style="cursor:pointer">bai viet da tim</li>');
+                        }
+                     });
                     })
                 }
+
             })
         })
       </script>
    </body>
 </html>
+
