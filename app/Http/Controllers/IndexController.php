@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Country;
 use App\Models\Sport;
 use App\Models\Post;
@@ -55,8 +56,7 @@ class IndexController extends Controller
         $post = Post::with('category','country','sport')->where('slug',$slug)->first();
         $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         $post_slug = Post::where('slug',$slug)->first();
-        $related = Post::with('category','country','sport')->where('sport_id',$post->sport->id)->orderBy(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();
-        return view('page.post',compact('category','country','sport','hot_news','post_slug','post','related'));
+        $related = Post::with('category','country','sport')->where('sport_id',$post->sport->id)->orderBy(DB::raw('RAND()'))->whereNotIn('slug',[$slug])->get();        return view('page.post',compact('category','country','sport','hot_news','post_slug','post','related'));
         // ,compact('category','country','sport','post_slug'
     }
     public function search(Request $request)

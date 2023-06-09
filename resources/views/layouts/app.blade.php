@@ -97,7 +97,8 @@
         let table = new DataTable('#tablepost');
         let table1 = new DataTable('#tablecountry');
         let table2 = new DataTable('#tablecategory');
-        let table3 = new DataTable('#tablesport')
+        let table3 = new DataTable('#tablesport');
+        let table4 = new DataTable('#tablecomment');
         function ChangeToSlug()
         {
             var slug;

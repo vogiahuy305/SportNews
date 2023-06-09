@@ -32,7 +32,7 @@
 
                     <!-- Search bar -->
                     <form class="example" action="{{ route('search') }}" style="margin:auto;max-width:300px">
-                        <input type="text" name="keywords_submit" id="search" placeholder="Tìm..." value="{{ $keywords }}">
+                        <input type="text" name="keywords_submit" id="search" placeholder="Tìm..." value="{{ $keywords ?? '' }}">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     <ul class="list-group" id="result" style="display:none">
@@ -165,6 +165,9 @@
       <script src="{{ asset('/user/assets/js/plugins/plugins.js') }}"></script>
       <!-- Active js -->
       <script src="{{ asset('/user/assets/js/active.js') }}"></script>
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0" nonce="ioMhT7xz"></script>
       <script type="text/javascript">
         $(document).ready(function() {
             $('#search').keyup(function() {

@@ -22,6 +22,20 @@
                         </i>
                    </span>
                 </div>
+
+                <div class="comment_area clearfix mb-100">
+                    <h4 class="mb-50">Bình luận</h4>
+                    @php
+                        $current_url =  Request::url();
+                    @endphp
+                    <ol>
+                        <!-- Single Comment Area -->
+                        <li class="single_comment_area">
+                            <!-- Comment Content -->
+                            <div class="fb-comments" data-href="{{ $current_url }}" data-width="100%" data-numposts="10"></div>
+                        </li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Sidebar Widget -->
@@ -30,7 +44,7 @@
                     <!-- Latest News Widget -->
                     <div class="single-widget-area news-widget mb-30">
                         <h4>Tin mới</h4>
-                        @foreach($hot_news->take(8) as $key => $post)
+                        @foreach($hot_news->take(10) as $key => $post)
                         <!-- Single News Area -->
                         <div class="single-blog-post d-flex style-4 mb-30">
                             <!-- Blog Thumbnail -->
