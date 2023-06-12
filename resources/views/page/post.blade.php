@@ -67,6 +67,7 @@
 
     <div class="news-area section-padding-100-70">
         <div class="container">
+            <h2> Tin liên quan</h2> <br>
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-9">
                     <!-- Single News Area -->

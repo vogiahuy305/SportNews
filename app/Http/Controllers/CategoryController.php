@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $list = Category::orderBy('position','ASC')->get();
+        $list = Category::orderBy('id','ASC')->get();
         return view('admin.category.index',compact('list'));
     }
 
@@ -53,7 +53,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::find($id);
-        $list = Category::orderBy('position','ASC')->get();
+        $list = Category::orderBy('id','ASC')->get();
         return view('admin.category.form',compact('list','category'));
     }
 
@@ -81,15 +81,4 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function resorting(Request $request)
-    {
-        $data = $request->all();
-
-        foreach($data['array_id'] as $key => $value)
-        {
-            $category = Category::find($value);
-            $category->position = $key;
-            $category->save();
-        }
-    }
 }

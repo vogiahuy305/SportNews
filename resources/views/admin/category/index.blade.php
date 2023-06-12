@@ -17,7 +17,6 @@
                   </tr>
                 </thead>
 
-                <tbody class="order_position">
                 @foreach($list as $key => $cate)
                   <tr id="{{ $cate->id }}">
                     <th scope="row">{{ $key }}</th>
@@ -39,7 +38,6 @@
                     </td>
                   </tr>
                 @endforeach
-                </tbody>
               </table>
         </div>
     </div>

@@ -18,7 +18,7 @@ class IndexController extends Controller
         $country = Country::orderBy('id','ASC')->where('status',1)->get();
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
-        $hot_news = Post::where('hot_news',1)->orderBy(DB::raw('RAND()'))->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         $keywords = $request->keywords_submit;
         return view('page.home',compact('category','country','sport','category_home','hot_news','keywords'));
     }

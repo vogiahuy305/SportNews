@@ -92,7 +92,7 @@
       <section class="breaking-news-area">
          <div class="container-fluid">
             <div class="row">
-               <div class="col-12">
+               <div class="col-12 ">
                   <!-- Breaking News Widget -->
                   <div class="breaking-news-ticker d-flex flex-wrap align-items-center">
                      <div class="title">
@@ -168,25 +168,7 @@
       <div id="fb-root"></div>
       <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v17.0" nonce="ioMhT7xz"></script>
-      <script type="text/javascript">
-        $(document).ready(function() {
-            $('#search').keyup(function() {
-                $('#result').html('');
-                var search = $('#search').val();
-                if(search!=''){
-                    var expression = new RegExp(search, "i");
-                    $.getJSON('/json/post.json',function(data){
-                     $.each(data, function(key,value){
-                        if(value.title.search(expression) != 1){
-                            $('#result').append('<li class="list-group-item link-class" style="cursor:pointer">bai viet da tim</li>');
-                        }
-                     });
-                    })
-                }
 
-            })
-        })
-      </script>
    </body>
 </html>
 
