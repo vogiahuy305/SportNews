@@ -3,11 +3,10 @@
 <!-- ##### Intro News Area Start ##### -->
 <section class="intro-news-area section-padding-100-0 mb-70">
 <div class="container">
-    <div class="row">
-        <h2>Kết quả tìm kiếm: {{ $keywords }}</h2>
-    </div>
 
     <div class="posts">
+        <h2>Kết quả tìm kiếm: {{ $keywords }}</h2>
+        <br><br>
         <div class="row">
             @foreach($search_post as $key => $post)
                 <!-- Single News Area -->

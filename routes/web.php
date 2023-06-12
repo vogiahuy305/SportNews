@@ -32,7 +32,7 @@ Route::get('/', [IndexController::class, 'home'])->name('homepage');
 Route::get('/danh-muc/{slug}', [IndexController::class,'category'])->name('category');
 Route::get('/quoc-gia/{slug}', [IndexController::class,'country'])->name('country');
 Route::get('/the-thao/{slug}', [IndexController::class,'sport'])->name('sport');
-Route::get('/bai-viet/{slug}', [IndexController::class,'post'])->name('post');
+Route::get('/tin-tuc/{slug}', [IndexController::class,'post'])->name('post');
 Route::get('/post', [IndexController::class, 'post'])->name('post');
 Route::get('/timkiem',[IndexController::class, 'search'])->name('search');
 
