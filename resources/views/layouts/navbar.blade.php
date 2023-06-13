@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('category.index') }}">Danh mục</a>
+            <a class="nav-link" href="{{ route('category.index') }}">Danh mục</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('country.index') }}">Quốc gia</a>

@@ -8,7 +8,7 @@
         <h2>Kết quả tìm kiếm: {{ $keywords }}</h2>
         <br><br>
         <div class="row">
-            @foreach($search_post as $key => $post)
+            @foreach($search_post->take(12) as $key => $post)
                 <!-- Single News Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
                 <div class="single-blog-post style-2 mb-5">

@@ -18,7 +18,7 @@ class IndexController extends Controller
         $country = Country::orderBy('id','ASC')->where('status',1)->get();
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
-        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','ASC')->get();
         $keywords = $request->keywords_submit;
         return view('page.home',compact('category','country','sport','category_home','hot_news','keywords'));
     }
@@ -28,7 +28,7 @@ class IndexController extends Controller
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $cate_slug = Category::where('slug',$slug)->first();
         $post = Post::where('category_id',$cate_slug->id)->paginate(9);
-        $hot_news = Post::where('hot_news',1)->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         return view('page.category',compact('category','country','sport','cate_slug','post','hot_news'));
     }
     public function country($slug){
@@ -37,7 +37,7 @@ class IndexController extends Controller
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $country_slug = Country::where('slug',$slug)->first();
         $post = Post::where('country_id',$country_slug->id)->paginate(9);
-        $hot_news = Post::where('hot_news',1)->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         return view('page.country',compact('category','country','sport','country_slug','post','hot_news'));
     }
     public function sport($slug){
@@ -46,7 +46,7 @@ class IndexController extends Controller
         $sport = Sport::orderBy('id','ASC')->get();
         $sport_slug = Sport::where('slug',$slug)->first();
         $post = Post::where('sport_id',$sport_slug->id)->paginate(9);
-        $hot_news = Post::where('hot_news',1)->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         return view('page.sport',compact('category','country','sport','sport_slug','post','hot_news'));
     }
     public function post($slug){
