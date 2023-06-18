@@ -25,7 +25,7 @@ class IndexController extends Controller
         $country = Country::orderBy('id','ASC')->where('status',1)->get();
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $cate_slug = Category::where('slug',$slug)->first();
-        $post = Post::where('category_id',$cate_slug->id)->paginate(9);
+        $post = Post::where('category_id',$cate_slug->id)->latest('date')->paginate(9);
         $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         return view('page.category',compact('category','country','sport','cate_slug','post','hot_news'));
     }
