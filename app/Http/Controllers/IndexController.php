@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Category;
-use App\Models\Comment;
 use App\Models\Country;
 use App\Models\Sport;
 use App\Models\Post;
@@ -18,7 +16,7 @@ class IndexController extends Controller
         $country = Country::orderBy('id','ASC')->where('status',1)->get();
         $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
         $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
-        $hot_news = Post::where('hot_news',1)->orderBy('date','ASC')->get();
+        $hot_news = Post::where('hot_news',1)->orderBy('date','DESC')->get();
         $keywords = $request->keywords_submit;
         return view('page.home',compact('category','country','sport','category_home','hot_news','keywords'));
     }
@@ -61,11 +59,11 @@ class IndexController extends Controller
     }
     public function search(Request $request)
     {
-        $category = Category::orderBy('id','ASC')->where('status',1)->get();
-        $country = Country::orderBy('id','ASC')->where('status',1)->get();
-        $sport = Sport::orderBy('id','ASC')->where('status',1)->get();
-        $post = Post::orderBy('id','ASC')->where('status',1)->get();
-        $category_home = Category::with('post')->orderBy('id','ASC')->where('status',1)->get();
+        $category = Category::orderBy('id','DESC')->where('status',1)->get();
+        $country = Country::orderBy('id','DESC')->where('status',1)->get();
+        $sport = Sport::orderBy('id','DESC')->where('status',1)->get();
+        $post = Post::orderBy('id','DESC')->where('status',1)->get();
+        $category_home = Category::with('post')->orderBy('id','DESC')->where('status',1)->get();
         $hot_news = Post::where('hot_news',1)->orderBy(DB::raw('RAND()'))->get();
         $keywords = $request->keywords_submit;
         $search_post = Post::where('title','like','%'.$keywords.'%')->get();

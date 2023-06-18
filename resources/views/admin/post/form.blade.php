@@ -7,7 +7,15 @@
             <div class="card">
                 <a href="{{ route('post.index') }}" class="btn btn-primary">Danh sách tin tức</a>
                 <div class="card-header">{{ __('Quản lý tin tức') }}</div>
-
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

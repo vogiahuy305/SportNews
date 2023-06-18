@@ -29,7 +29,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
+
+        $data = $request->validate(
+            [
+                'title' => 'required|unique:categories|max:100',
+                'description' => 'required|max:250',
+                'slug' => 'required|unique:categories|max:255',
+                'status' => 'required',
+            ],
+            [
+                'title.required' => 'Vui lòng điền tên danh mục !!',
+                'title.unique' => 'Tên danh mục tin đẫ có, xin điền tên khác !!',
+                'description.required' => 'Vui lòng điền mô tả danh mục !!',
+                'slug.required' => 'Vui lòng điền đường dẫn danh mục !!',
+                'slug.unique' => 'Đường dẫn danh mục đã có, xin điền slug khác !!',
+            ]
+        );
         $category = new Category();
         $category->title = $data['title'];
         $category->slug = $data['slug'];
@@ -62,7 +78,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data = $request->validate(
+            [
+                'title' => 'required|unique:categories|max:100',
+                'description' => 'required|max:250',
+                'slug' => 'required|unique:categories|max:255',
+                'status' => 'required',
+            ],
+            [
+                'title.required' => 'Vui lòng điền tên danh mục !!',
+                'title.unique' => 'Tên danh mục tin đẫ có, vui lòng điền tên khác !!',
+                'description.required' => 'Vui lòng điền mô tả danh mục !!',
+                'slug.required' => 'Vui lòng điền slug danh mục !!',
+                'slug.unique' => 'Slug danh mục đã có, vui lòng điền slug khác !!',
+            ]
+        );
         $category = Category::find($id);
         $category->title = $data['title'];
         $category->slug = $data['slug'];

@@ -8,6 +8,15 @@
                 <a href="{{ route('category.index') }}" class="btn btn-primary">Danh sách danh mục</a>
                 <div class="card-header">{{ __('Quản lý danh mục tin') }}</div>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

@@ -29,7 +29,22 @@ class SportController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data = $request->validate(
+            [
+                'title' => 'required|unique:sports|max:100',
+                'description' => 'required|max:250',
+                'slug' => 'required|unique:sports|max:255',
+                'status' => 'required',
+            ],
+            [
+                'title.required' => 'Vui lòng điền tên môn thể thao !!',
+                'title.unique' => 'Tên môn thể thao đẫ có, vui lòng điền tên khác !!',
+                'description.required' => 'Vui lòng điền mô tả môn thể thao !!',
+                'slug.required' => 'Vui lòng điền slug môn thể thao !!',
+                'slug.unique' => 'Slug môn thể thao đã có, vui lòng điền slug khác !!',
+            ]
+        );
         $sport = new Sport();
         $sport->title = $data['title'];
         $sport->slug = $data['slug'];
@@ -62,7 +77,22 @@ class SportController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data = $request->validate(
+        [
+            'title' => 'required|unique:sports|max:100',
+            'description' => 'required|max:250',
+            'slug' => 'required|unique:sports|max:255',
+            'status' => 'required',
+        ],
+        [
+            'title.required' => 'Vui lòng điền tên môn thể thao !!',
+            'title.unique' => 'Tên môn thể thao đẫ có, vui lòng điền tên khác !!',
+            'description.required' => 'Vui lòng điền mô tả môn thể thao !!',
+            'slug.required' => 'Vui lòng điền slug môn thể thao !!',
+            'slug.unique' => 'Slug môn thể thao đã có, vui lòng điền slug khác !!',
+        ]
+        );
         $sport = Sport::find($id);
         $sport->title = $data['title'];
         $sport->slug = $data['slug'];

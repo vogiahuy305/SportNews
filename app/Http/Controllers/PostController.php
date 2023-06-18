@@ -44,8 +44,31 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
+        $data = $request->validate(
+        [
+            'title' => 'required|unique:posts|max:100',
+            'slug' => 'required|unique:posts|max:255',
+            'date' => 'required',
+            'description' => 'required|max:65535',
+            'content' => 'required|max:65535',
+            'link_post' => 'required|max:255',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:255',
+            'status' => 'required',
+        ],
+        [
+            'title.required' => 'Vui lòng điền tiêu đề tin tức !!',
+            'title.unique' => 'Tiêu đề tin tức đẫ có, vui lòng điền tiêu đề khác !!',
+            'slug.required' => 'Vui lòng điền slug tin tức !!',
+            'slug.unique' => 'Slug tin tức đã có, vui lòng điền slug khác !!',
+            'date.required' => 'Vui lòng nhập ngày đăng tin !!',
+            'description.required' => 'Vui lòng điền mô tả tin tức !!',
+            'content.required' => 'Vui lòng nhập nội dung tin tức !!',
+            'link_post.required' => 'Vui lòng điền đường dẫn tin tức gốc !!',
+            'image.required' => 'Vui lòng điền đường dẫn hình ảnh tin tức !!',
+        ]
+        );
         $post = new Post();
         $post->title = $data['title'];
         $post->hot_news = $data['hot_news'];
@@ -88,8 +111,30 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = $request->all();
-
+        // $data = $request->all();
+        $data = $request->validate(
+        [
+            'title' => 'required|unique:posts|max:100',
+            'slug' => 'required|unique:posts|max:255',
+            'date' => 'required',
+            'description' => 'required|max:65535',
+            'content' => 'required|max:65535',
+            'link_post' => 'required|max:255',
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:255',
+            'status' => 'required',
+        ],
+        [
+            'title.required' => 'Vui lòng điền tiêu đề tin tức !!',
+            'title.unique' => 'Tiêu đề tin tức đẫ có, vui lòng điền tiêu đề khác !!',
+            'slug.required' => 'Vui lòng điền slug tin tức !!',
+            'slug.unique' => 'Slug tin tức đã có, vui lòng điền slug khác !!',
+            'date.required' => 'Vui lòng nhập ngày đăng tin !!',
+            'description.required' => 'Vui lòng điền mô tả tin tức !!',
+            'content.required' => 'Vui lòng nhập nội dung tin tức !!',
+            'link_post.required' => 'Vui lòng điền đường dẫn tin tức gốc !!',
+            'image.required' => 'Vui lòng điền đường dẫn hình ảnh tin tức !!',
+        ]
+        );
         $post = Post::find($id);
         $post->title = $data['title'];
         $post->hot_news = $data['hot_news'];

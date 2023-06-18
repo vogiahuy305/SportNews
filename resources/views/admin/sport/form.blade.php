@@ -5,9 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <a href="{{ route('post.index') }}" class="btn btn-primary">Danh sách thể thao</a>
+                <a href="{{ route('sport.index') }}" class="btn btn-primary">Danh sách thể thao</a>
                 <div class="card-header">{{ __('Quản lý thể thao') }}</div>
-
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

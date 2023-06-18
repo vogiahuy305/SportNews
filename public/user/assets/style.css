@@ -649,7 +649,9 @@ img {
   .single-blog-post.style-2 .blog-thumbnail {
     margin-bottom: 20px; }
     .single-blog-post.style-2 .blog-thumbnail img {
-      width: 100%; }
+      width: 100%;
+      height: 295px;
+      max-height: 78%  }
   .single-blog-post.style-2 .blog-content {
     position: relative;
     text-align: justify;
